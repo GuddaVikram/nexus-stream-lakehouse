@@ -1,3 +1,5 @@
+
+
 # 🛰️ NexusStream: Real-Time Cloud Data Lakehouse Platform
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg?logo=python)](https://www.python.org/)
@@ -17,6 +19,7 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
 
 ## 🏗️ System Architecture
 
+```text
                                 [ LIVE MARKET API ]
                                          │
                                          ▼
@@ -52,6 +55,7 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
        │   Plane Orchestrator  │                   │  Analytics Dashboard  │
        └───────────────────────┘                   └───────────────────────┘
 
+```
 
 ---
 
@@ -85,19 +89,20 @@ nexus-stream-lakehouse/
 ├── analytics_warehouse/               # dbt Modeling Workspace
 │   ├── models/
 │   │   ├── staging/
-│   │   │   └── stg_market_metrics.sql          # Silver View
+│   │   │   └── stg_market_metrics.sql # Silver View
 │   │   └── marts/
-│   │       └── fct_hourly_market_trends.sql    # Gold Mart Table
+│   │       └── fct_hourly_market_trends.sql # Gold Mart Table
 │   ├── dbt_project.yml
-│   └── profiles.yml                            # DuckDB + MinIO Connection Profile
-├── docker-compose.yml                          # Local Infrastructure Stack (Kafka + MinIO)
-├── producer.py                                 # Live Telemetry Ingestion Script
-├── spark_consumer.py                           # PySpark Structured Streaming Pipeline
-├── orchestrator.py                             # Dagster Asset Pipeline & Scheduler
-├── dashboard.py                                # Streamlit Visual Interface
-├── query_warehouse.py                          # Diagnostic Database Audit Tool
-├── requirements.txt                            # Environment Dependencies
+│   └── profiles.yml                   # DuckDB + MinIO Connection Profile
+├── docker-compose.yml                 # Local Infrastructure Stack (Kafka + MinIO)
+├── producer.py                        # Live Telemetry Ingestion Script
+├── spark_consumer.py                  # PySpark Structured Streaming Pipeline
+├── orchestrator.py                    # Dagster Asset Pipeline & Scheduler
+├── dashboard.py                       # Streamlit Visual Interface
+├── query_warehouse.py                 # Diagnostic Database Audit Tool
+├── requirements.txt                   # Environment Dependencies
 └── README.md
+
 ```
 
 ---
@@ -112,7 +117,7 @@ nexus-stream-lakehouse/
 
 ### 1. Clone Repository & Setup Virtual Environment
 
-
+```bash
 git clone [https://github.com/](https://github.com/)<your-username>/nexus-stream-lakehouse.git
 cd nexus-stream-lakehouse
 
@@ -120,16 +125,16 @@ python3 -m venv endtoend
 source endtoend/bin/activate
 pip install -r requirements.txt
 
-
+```
 
 ### 2. Boot Infrastructure Containers
 
 Start local MinIO object storage and Apache Kafka brokers:
 
-
+```bash
 docker-compose up -d
 
-
+```
 
 > Access MinIO Control Console at `http://localhost:9001` (Credentials: `admin_key` / `secret_session_password`).
 
@@ -139,49 +144,51 @@ Launch the event producer and Spark processor in separate terminal windows:
 
 **Terminal 1 (Producer):**
 
-
+```bash
 source endtoend/bin/activate
 python producer.py
 
+```
 
 **Terminal 2 (PySpark Streaming Consumer):**
 
-
+```bash
 source endtoend/bin/activate
 python spark_consumer.py
 
-
+```
 
 ### 4. Compile Warehouse Models
 
 Generate the initial dbt manifest and build warehouse tables:
 
-
+```bash
 cd analytics_warehouse
 dbt compile --profiles-dir .
 dbt run --profiles-dir .
 cd ..
 
+```
 
 ### 5. Launch Orchestrator & Dashboard
 
 **Terminal 3 (Dagster Orchestration):**
 
-
+```bash
 source endtoend/bin/activate
 dagster dev -f orchestrator.py
 
-
+```
 
 > Access Dagster Web UI at `http://localhost:3000` to toggle the `warehouse_scheduler` ON.
 
 **Terminal 4 (Streamlit Visualization):**
 
-
+```bash
 source endtoend/bin/activate
 streamlit run dashboard.py
 
-
+```
 
 > Access the Live Analytical Dashboard at `http://localhost:8501`.
 
@@ -194,3 +201,5 @@ streamlit run dashboard.py
 * **Path-Style Access:** Enforced S3A connector properties (`fs.s3a.path.style.access=true`) to enable seamless local S3 emulation over HTTP.
 
 ---
+```
+
