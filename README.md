@@ -52,7 +52,6 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
        │   Plane Orchestrator  │                   │  Analytics Dashboard  │
        └───────────────────────┘                   └───────────────────────┘
 
-```
 
 ---
 
@@ -81,7 +80,6 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
 
 ## 📂 Project Directory Structure
 
-```text
 nexus-stream-lakehouse/
 ├── analytics_warehouse/               # dbt Modeling Workspace
 │   ├── models/
@@ -100,8 +98,6 @@ nexus-stream-lakehouse/
 ├── requirements.txt                   # Environment Dependencies
 └── README.md
 
-```
-
 ---
 
 ## ⚙️ Local Setup & Getting Started
@@ -114,7 +110,7 @@ nexus-stream-lakehouse/
 
 ### 1. Clone Repository & Setup Virtual Environment
 
-```bash
+
 git clone [https://github.com/](https://github.com/)<your-username>/nexus-stream-lakehouse.git
 cd nexus-stream-lakehouse
 
@@ -122,16 +118,16 @@ python3 -m venv endtoend
 source endtoend/bin/activate
 pip install -r requirements.txt
 
-```
+
 
 ### 2. Boot Infrastructure Containers
 
 Start local MinIO object storage and Apache Kafka brokers:
 
-```bash
+
 docker-compose up -d
 
-```
+
 
 > Access MinIO Control Console at `http://localhost:9001` (Credentials: `admin_key` / `secret_session_password`).
 
@@ -141,51 +137,49 @@ Launch the event producer and Spark processor in separate terminal windows:
 
 **Terminal 1 (Producer):**
 
-```bash
+
 source endtoend/bin/activate
 python producer.py
 
-```
 
 **Terminal 2 (PySpark Streaming Consumer):**
 
-```bash
+
 source endtoend/bin/activate
 python spark_consumer.py
 
-```
+
 
 ### 4. Compile Warehouse Models
 
 Generate the initial dbt manifest and build warehouse tables:
 
-```bash
+
 cd analytics_warehouse
 dbt compile --profiles-dir .
 dbt run --profiles-dir .
 cd ..
 
-```
 
 ### 5. Launch Orchestrator & Dashboard
 
 **Terminal 3 (Dagster Orchestration):**
 
-```bash
+
 source endtoend/bin/activate
 dagster dev -f orchestrator.py
 
-```
+
 
 > Access Dagster Web UI at `http://localhost:3000` to toggle the `warehouse_scheduler` ON.
 
 **Terminal 4 (Streamlit Visualization):**
 
-```bash
+
 source endtoend/bin/activate
 streamlit run dashboard.py
 
-```
+
 
 > Access the Live Analytical Dashboard at `http://localhost:8501`.
 
