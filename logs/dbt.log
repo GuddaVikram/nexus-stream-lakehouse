@@ -1,0 +1,80 @@
+[0m21:57:02.176079 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1109c4880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1125382b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112538f70>]}
+
+
+============================== 21:57:02.181441 | ca57408e-ac51-4c82-bd70-b6d8fd511c12 ==============================
+[0m21:57:02.181441 [info ] [MainThread]: Running with dbt=1.10.19
+[0m21:57:02.182059 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'version_check': 'True', 'write_json': 'True', 'quiet': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'static_parser': 'True', 'use_colors': 'True', 'warn_error': 'None', 'invocation_command': 'dbt init analytics_warehouse', 'debug': 'False', 'log_format': 'default', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'profiles_dir': '/Users/vikramg/.dbt', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'use_experimental_parser': 'False'}
+[0m21:57:02.200799 [debug] [MainThread]: Starter project path: /Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/include/starter_project
+[0m21:57:02.209974 [info ] [MainThread]: 
+Your new dbt project "analytics_warehouse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:57:02.210547 [info ] [MainThread]: Setting up your profile.
+[0m21:57:18.834790 [error] [MainThread]: Encountered an error:
+
+[0m21:57:18.845982 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/cli/requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/task/init.py", line 261, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/task/init.py", line 242, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "/Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m21:57:18.865671 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 16.78531, "process_in_blocks": "0", "process_kernel_time": 0.260753, "process_mem_max_rss": "94928896", "process_out_blocks": "0", "process_user_time": 1.44009}
+[0m21:57:18.867036 [debug] [MainThread]: Command `dbt init` failed at 21:57:18.866841 after 16.79 seconds
+[0m21:57:18.867985 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1109c4880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1123d9dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1125382b0>]}
+[0m21:57:18.868860 [debug] [MainThread]: Flushing usage events
+[0m21:57:20.550897 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:58:17.355317 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1053648e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070b8220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070b8d30>]}
+
+
+============================== 21:58:17.360420 | e311a936-3b61-4f43-bd12-874e32f86458 ==============================
+[0m21:58:17.360420 [info ] [MainThread]: Running with dbt=1.10.19
+[0m21:58:17.361124 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'target_path': 'None', 'log_format': 'default', 'invocation_command': 'dbt init analytics_warehouse', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'no_print': 'None', 'quiet': 'False', 'warn_error': 'None', 'introspect': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'use_experimental_parser': 'False', 'debug': 'False', 'empty': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'profiles_dir': '/Users/vikramg/.dbt', 'use_colors': 'True'}
+[0m21:58:17.376470 [debug] [MainThread]: Starter project path: /Users/vikramg/.pyenv/versions/3.9.6/lib/python3.9/site-packages/dbt/include/starter_project
+[0m21:58:17.383414 [info ] [MainThread]: 
+Your new dbt project "analytics_warehouse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:58:17.383991 [info ] [MainThread]: Setting up your profile.
+[0m21:59:14.893547 [info ] [MainThread]: Profile analytics_warehouse written to /Users/vikramg/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:59:14.905100 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 57.660336, "process_in_blocks": "0", "process_kernel_time": 0.3082, "process_mem_max_rss": "94142464", "process_out_blocks": "0", "process_user_time": 1.719979}
+[0m21:59:14.907999 [debug] [MainThread]: Command `dbt init` succeeded at 21:59:14.906942 after 57.66 seconds
+[0m21:59:14.909174 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1053648e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1076180d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107099220>]}
+[0m21:59:14.909951 [debug] [MainThread]: Flushing usage events
+[0m21:59:16.353181 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,16 @@
+analytics_warehouse:
+  outputs:
+    dev:
+      type: duckdb
+      path: 'analytics_lakehouse.duckdb'
+      extensions:
+        - httpfs  # Allows DuckDB to read over network sockets
+        - aws     # Gives DuckDB native S3 security credentials
+      # ─── CONNECTING DIRECTLY TO YOUR MINIO STORAGE ───
+      settings:
+        s3_endpoint: 'localhost:9000'
+        s3_access_key_id: 'admin_key'
+        s3_secret_access_key: 'secret_session_password'
+        s3_use_ssl: false
+        s3_url_style: 'path'
+  target: dev

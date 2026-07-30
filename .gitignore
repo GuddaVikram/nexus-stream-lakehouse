@@ -1,0 +1,15 @@
+# Virtual Environment
+endtoend/
+venv/
+*.pyc
+__pycache__/
+
+# dbt artifacts & local DuckDB files
+analytics_warehouse/target/
+analytics_warehouse/dbt_packages/
+analytics_warehouse/logs/
+*.duckdb
+*.duckdb.wal
+
+# OS files
+.DS_Store
