@@ -1,6 +1,3 @@
-Here is a complete, production-grade **`README.md`** tailored specifically for your project. You can copy the code block below in a single click and paste it directly into your GitHub repository!
-
-```markdown
 # 🛰️ NexusStream: Real-Time Cloud Data Lakehouse Platform
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg?logo=python)](https://www.python.org/)
@@ -20,7 +17,6 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
 
 ## 🏗️ System Architecture
 
-```text
                                 [ LIVE MARKET API ]
                                          │
                                          ▼
