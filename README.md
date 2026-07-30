@@ -79,23 +79,27 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
 ---
 
 ## 📂 Project Directory Structure
+
+```text
 nexus-stream-lakehouse/
 ├── analytics_warehouse/               # dbt Modeling Workspace
 │   ├── models/
 │   │   ├── staging/
-│   │   │   └── stg_market_metrics.sql # Silver View
+│   │   │   └── stg_market_metrics.sql          # Silver View
 │   │   └── marts/
-│   │       └── fct_hourly_market_trends.sql # Gold Mart Table
+│   │       └── fct_hourly_market_trends.sql    # Gold Mart Table
 │   ├── dbt_project.yml
-│   └── profiles.yml                   # DuckDB + MinIO Connection Profile
-├── docker-compose.yml                 # Local Infrastructure Stack (Kafka + MinIO)
-├── producer.py                        # Live Telemetry Ingestion Script
-├── spark_consumer.py                  # PySpark Structured Streaming Pipeline
-├── orchestrator.py                    # Dagster Asset Pipeline & Scheduler
-├── dashboard.py                       # Streamlit Visual Interface
-├── query_warehouse.py                 # Diagnostic Database Audit Tool
-├── requirements.txt                   # Environment Dependencies
+│   └── profiles.yml                            # DuckDB + MinIO Connection Profile
+├── docker-compose.yml                          # Local Infrastructure Stack (Kafka + MinIO)
+├── producer.py                                 # Live Telemetry Ingestion Script
+├── spark_consumer.py                           # PySpark Structured Streaming Pipeline
+├── orchestrator.py                             # Dagster Asset Pipeline & Scheduler
+├── dashboard.py                                # Streamlit Visual Interface
+├── query_warehouse.py                          # Diagnostic Database Audit Tool
+├── requirements.txt                            # Environment Dependencies
 └── README.md
+```
+
 ---
 
 ## ⚙️ Local Setup & Getting Started
