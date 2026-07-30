@@ -79,7 +79,6 @@ The analytical layer utilizes **dbt Core** and **DuckDB** for zero-copy SQL tran
 ---
 
 ## 📂 Project Directory Structure
-
 nexus-stream-lakehouse/
 ├── analytics_warehouse/               # dbt Modeling Workspace
 │   ├── models/
@@ -97,7 +96,6 @@ nexus-stream-lakehouse/
 ├── query_warehouse.py                 # Diagnostic Database Audit Tool
 ├── requirements.txt                   # Environment Dependencies
 └── README.md
-
 ---
 
 ## ⚙️ Local Setup & Getting Started
